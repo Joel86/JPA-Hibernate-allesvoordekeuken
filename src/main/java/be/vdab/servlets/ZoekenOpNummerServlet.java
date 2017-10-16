@@ -9,20 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import be.vdab.repositories.ArtikelRepository;
+import be.vdab.service.ArtikelService;
 import be.vdab.util.StringUtils;
 
 @WebServlet("/artikels/zoekenopnummer.htm")
 public class ZoekenOpNummerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private static final String VIEW = "/WEB-INF/JSP/zoekenopnummer.jsp";
-    private final transient ArtikelRepository artikelRepository 
-    	= new ArtikelRepository();
+    private final transient ArtikelService artikelService 
+    	= new ArtikelService();
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(request.getQueryString() != null) {
 			String id = request.getParameter("id");
 			if(StringUtils.isLong(id)) {
-				artikelRepository.read(Long.parseLong(id)).ifPresent(
+				artikelService.read(Long.parseLong(id)).ifPresent(
 								artikel -> request.setAttribute("artikel", artikel));
 			} else {
 				request.setAttribute("fouten", Collections.singletonMap("id", "tik een getal"));
