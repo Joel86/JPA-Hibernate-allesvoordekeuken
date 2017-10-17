@@ -19,4 +19,15 @@ public class StringUtils {
 			return false;
 		}
 	}
+	public static boolean isInt(String string) {
+		if(string == null) {
+			return false;
+		}
+		try {
+			Integer.parseInt(string);
+			return true;
+		} catch(NumberFormatException ex) {
+			return false;
+		}
+	}
 }

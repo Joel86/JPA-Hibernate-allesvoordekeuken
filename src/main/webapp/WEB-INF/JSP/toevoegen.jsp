@@ -18,12 +18,34 @@
     <label>Verkoopprijs:<span>${fouten.verkoopprijs}</span>
       <input name='verkoopprijs' value='${param.verkoopprijs}' type='number'
       min='0' step='0.01' required></label>
+    <div><span>${fouten.soort}</span><label>
+    <input type='radio' name='soort' id='food' 
+    value='Food' ${param.soort == "Food" ? "checked" : ""}>Food</label></div>
+    <label>Houdbaarheid<span>${fouten.houdbaarheid}</span>
+      <input name='houdbaarheid' id='houdbaarheid' type='number' min='1'
+      value='${param.houdbaarheid}'></label>
+    <div><label><input type='radio' name='soort' id='nonfood'  
+    value='Non-Food' ${param.soort == "Non-Food" ? "checked" : ""}>Non-Food</label></div>
+    <label>Garantie:<span>${fouten.garantie}</span>
+      <input name='garantie' id='garantie' type='number' min='0'
+      value='${param.garantie}'></label>
     <input type='submit' value='Toevoegen' id='toevoegknop'>
   </form>
   <script>
     document.getElementById('toevoegform').onsubmit = function() {
     	document.getElementById('toevoegknop').disabled = true;
     };
+    document.getElementById('food').onclick =
+    	enableDisableInputs;
+    	document.getElementById('nonfood').onclick =
+    	enableDisableInputs;
+    	enableDisableInputs();
+    	function enableDisableInputs() {
+    	document.getElementById('houdbaarheid').disabled =
+    	! document.getElementById('food').checked;
+    	document.getElementById('garantie').disabled =
+    	! document.getElementById('nonfood').checked;
+    	};
   </script>
 </body>
 </html>
