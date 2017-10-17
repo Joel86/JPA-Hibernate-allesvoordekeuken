@@ -1,5 +1,6 @@
 package be.vdab.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.persistence.PersistenceException;
@@ -11,6 +12,9 @@ public class ArtikelService extends AbstractService {
 	private final transient ArtikelRepository artikelRepository = new ArtikelRepository();
 	public Optional<Artikel> read(long id) {
 		return artikelRepository.read(id);
+	}
+	public List<Artikel> findByName(String naam) {
+		return artikelRepository.findByName(naam);
 	}
 	public void create(Artikel artikel) {
 		beginTransaction();
