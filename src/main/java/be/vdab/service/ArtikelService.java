@@ -1,5 +1,6 @@
 package be.vdab.service;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,6 +23,18 @@ public class ArtikelService extends AbstractService {
 			artikelRepository.create(artikel);
 			commit();
 		} catch (PersistenceException ex) {
+			rollback();
+			throw ex;
+		}
+	}
+	public void algemenePrijsverhoging(BigDecimal percentage) {
+		BigDecimal factor = BigDecimal.ONE.add(
+				percentage.divide(BigDecimal.valueOf(100)));
+		try {
+			beginTransaction();
+			artikelRepository.algemenePrijsverhoging(factor);
+			commit();
+		} catch(PersistenceException ex) {
 			rollback();
 			throw ex;
 		}
