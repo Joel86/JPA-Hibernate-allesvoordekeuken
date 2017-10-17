@@ -30,8 +30,8 @@ public class ArtikelService extends AbstractService {
 	public void algemenePrijsverhoging(BigDecimal percentage) {
 		BigDecimal factor = BigDecimal.ONE.add(
 				percentage.divide(BigDecimal.valueOf(100)));
+		beginTransaction();
 		try {
-			beginTransaction();
 			artikelRepository.algemenePrijsverhoging(factor);
 			commit();
 		} catch(PersistenceException ex) {

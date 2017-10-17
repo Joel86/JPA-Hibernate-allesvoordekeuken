@@ -10,8 +10,8 @@
   <h1>Algemene prijsverhoging artikels</h1>
   <form method='post' id='prijsverhogingform'>
     <label>Percentage:<span>${fouten.percentage}</span>
-      <input name='percentage' type='number' min='0.01'
-      step='0.01' autofocus></label>
+      <input name='percentage' value='${param.percentage}' type='number' min='0.01'
+      step='0.01' autofocus required></label>
     <input type='submit' value='Bevestigen' id='submitknop'>
   </form>
   <script>
