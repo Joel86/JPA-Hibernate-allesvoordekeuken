@@ -1,4 +1,4 @@
-package be.vdab.service;
+package be.vdab.services;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -38,5 +38,8 @@ public class ArtikelService extends AbstractService {
 			rollback();
 			throw ex;
 		}
+	}
+	public List<Artikel> findAll() {
+		return artikelRepository.findAll();
 	}
 }

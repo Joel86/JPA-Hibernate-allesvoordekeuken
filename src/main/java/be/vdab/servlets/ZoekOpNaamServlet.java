@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import be.vdab.service.ArtikelService;
+import be.vdab.services.ArtikelService;
 
 @WebServlet("/artikels/zoekenopnaam.htm")
 public class ZoekOpNaamServlet extends HttpServlet {

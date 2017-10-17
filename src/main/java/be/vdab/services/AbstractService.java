@@ -1,4 +1,4 @@
-package be.vdab.service;
+package be.vdab.services;
 
 import javax.persistence.EntityManager;
 

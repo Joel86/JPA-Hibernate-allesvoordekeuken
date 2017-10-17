@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import be.vdab.entities.Artikel;
 import be.vdab.entities.FoodArtikel;
 import be.vdab.entities.NonFoodArtikel;
-import be.vdab.service.ArtikelService;
+import be.vdab.services.ArtikelService;
 import be.vdab.util.StringUtils;
 
 @WebServlet("/artikels/toevoegen.htm")
