@@ -29,4 +29,11 @@ public class ArtikelRepository extends AbstractRepository {
 				"Artikel.findAll", Artikel.class)
 				.getResultList();
 	}
+	public List<Artikel> findAllMetArtikelgroep() {
+		return getEntityManager().createNamedQuery(
+				"Artikel.findAll", Artikel.class)
+				.setHint("javax.persistence.loadgraph",
+						getEntityManager().createEntityGraph("Artikel.metArtikelgroep"))
+				.getResultList();
+	}
 }
