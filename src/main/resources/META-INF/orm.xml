@@ -23,4 +23,10 @@
 	    order by a.naam
 	  </query>
 	</named-query>
+	<named-query name="Artikelgroepen.findAll">
+	  <query>
+	    select a from Artikelgroep a
+	    order by a.naam
+	  </query>
+	</named-query>
 </entity-mappings>
